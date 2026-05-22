@@ -1,11 +1,20 @@
 ---
 name: schengen-visa-guide
-description: Use when user mentions Schengen visa, 申根签, 申根签证, European travel visa application, wants to apply for a visa to Europe, needs help with visa document checklist, cover letter, or itinerary for visa purposes.
+description: Use EXCLUSIVELY when user mentions Schengen visa (申根签/申根签证) or wants to apply for a tourist visa to Schengen countries (France, Italy, Spain, Germany, Switzerland, etc.). This skill ONLY covers Schengen short-stay tourist visas — if user asks about UK, US, Canada, or any non-Schengen country, do NOT use this skill; tell them it's out of scope and a separate skill is needed.
 ---
 
 # Schengen Visa Guide
 
 Interactive Schengen visa wizard for Chinese-passport holders. Guides through the full DIY process — from choosing where to apply to submitting documents. Currently supports students; other profiles will be added later.
+
+## What This Skill Covers
+
+**ONLY Schengen short-stay tourist visas (Type C).** Valid for the 29 Schengen Area countries.
+
+**This skill does NOT cover:**
+- UK, US, Canada, Australia, Japan, or any other non-Schengen country
+- Student visas, work visas, or long-stay visas
+- If the user asks for a non-Schengen country, stop and tell them: "这不是申根国家，这个 skill 覆盖不了。需要单独做一个 [国家名] 的签证 skill。"
 
 ## Overview
 
@@ -48,10 +57,10 @@ If the user picks another country, that's fine — adapt. Look up the correct vi
 
 ### Step 2: Online Appointment
 
-Look up the correct visa center for the chosen country (TLScontact / VFS Global / BLS / other). Guide the user:
+Give the user direct links — do NOT tell them to search. See `references/country-notes.md` for the links for each country. Guide the user:
 
-1. Fill in the visa application form on the country's official visa website → generates an application number. **Screenshot it.**
-2. Register on the visa center website (TLS/VFS/BLS) → link the application number → book an appointment.
+1. Fill in the visa application form on the country's official visa website (link provided) → generates an application number. **Screenshot it.**
+2. Register on the visa center website (link provided) → link the application number → book an appointment.
 3. Print both the application form and the appointment confirmation.
 
 These become checklist items #14 and #15.
