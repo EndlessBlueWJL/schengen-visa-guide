@@ -22,13 +22,27 @@ Works with Claude Code, Codex, OpenClaw, and any agent that reads skill files.
 
 ## The problem
 
-DIY Schengen visa from China is a mess:
+DIY Schengen visa isn't paperwork — it's information warfare.
 
-> Open 8 tabs → read 5攻略 → none match your identity → forget what you did yesterday → miss one document → rejected.
+**Too many guides, no complete picture.**
 
-攻略 are dead text. They don't know if you're a student or employed. They don't tell you that you forgot item #7 until it's too late. And when you close the chat window, they forget everything.
+One Xiaohongshu post covers the checklist. A Zhihu answer explains the appointment. A Bilibili video warns about common mistakes. Each is useful. None is complete. You end up with 8 tabs open, cross-referencing — only to find that none of them actually match your specific situation.
 
-**The real cost isn't the rejection — it's the 3-week redo loop.**
+**Wrong identity, wrong documents.**
+
+A student needs enrollment certificates and notarized parent sponsorship. An employed person needs company letters, business licenses, and salary slips. A freelancer needs to explain irregular income without standard proof — and may need a notarized relationship certificate for a sponsor. Same visa, completely different document stacks. Most guides are written for the "average applicant" — and average fits nobody.
+
+**Cross-session amnesia. Every new chat is day one.**
+
+Document prep takes 1–2 weeks, not one evening. Monday you sort insurance, Wednesday you print bank statements, Friday you book the appointment. You close the chat window between sessions. When you open it again — the AI doesn't even remember you're applying for a visa. You re-explain your identity, your country, your progress. After the third time, you give up and start tracking it in your head. Then you miss item #7.
+
+**Documents form a dependency chain. Wrong order means redoing work.**
+
+The itinerary dictates hotel dates. Hotel bookings must match itinerary cities. The flight reservation must align with the entry country — which must also be the country with the most itinerary days. Book hotels before the itinerary? Redo. Fly into Paris but Italy has the most days in your plan? Redo. No guide tells you the correct order — because a static page is flat, and this process has dependencies.
+
+**The real cost isn't rejection. It's not knowing why you were rejected.**
+
+The visa officer won't give you a reason. You get your passport back, stare at the rejection stamp, and guess: was the bank balance too low? Was the itinerary too rushed? Did the cover letter sound AI-generated? Then you wait another 3 weeks and roll the dice again.
 
 ---
 
