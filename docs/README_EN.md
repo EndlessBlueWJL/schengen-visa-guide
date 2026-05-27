@@ -23,9 +23,8 @@ Close the window, open it tomorrow — it remembers where you left off.
 ## The problem
 
 - Too many guides, none written for your identity
-- AI forgets everything the moment you close the window
-- Documents depend on each other — wrong order means redoing work
-- Get rejected? They won't tell you why. You guess, wait 3 weeks, roll the dice again
+- AI can't precisely remember your progress — it has a vague sense at best. Every session may require re-explaining
+- Some documents are interdependent — wrong order turns prep into chaos
 
 ---
 
