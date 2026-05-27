@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-An AI agent skill for Chinese passport holders — pure markdown, platform-agnostic.<br>
+An AI agent skill for Chinese passport holders — platform-agnostic.<br>
 Turns a dead guide into a session-persistent, step-by-step interactive wizard.<br>
 Close the window, open it tomorrow — it remembers where you left off.
 </p>
