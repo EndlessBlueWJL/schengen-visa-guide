@@ -1,7 +1,6 @@
 # 用户私人文件
 progress.md
-*.pdf
-*.html
+outputs/
 
 # 系统文件
 .DS_Store
