@@ -13,9 +13,9 @@
 </p>
 
 <p align="center">
-For Chinese passport holders — a Claude Code skill that turns a chaotic visa checklist<br>
-into a session-persistent, step-by-step interactive wizard.<br>
-It remembers where you left off. It knows what you still need. It gets you to the appointment.
+An AI agent skill for Chinese passport holders — pure markdown, platform-agnostic.<br>
+Turns a chaotic visa checklist into a session-persistent, step-by-step interactive wizard.<br>
+Works with Claude Code, Codex, OpenClaw, and any agent that reads skill files.
 </p>
 
 ---
@@ -34,11 +34,11 @@ DIY Schengen visa from China is a mess:
 
 ## What this does
 
-This skill turns Claude into your personal visa handler:
+This skill turns your AI agent into a personal visa handler:
 
 🪪 **Identify yourself once** → checklist tailored to you (5 identity types: student, employed, retired, freelancer, unemployed)
 
-🔁 **Cross-session memory** → close the window, come back tomorrow, Claude reads `progress.md` and picks up exactly where you stopped — zero repetition
+🔁 **Cross-session memory** → close the window, come back tomorrow, the agent reads `progress.md` and picks up exactly where you stopped — zero repetition
 
 📋 **One item at a time** → 17–18 documents, each with clear instructions: where to get it, what format, common pitfalls
 
@@ -66,36 +66,44 @@ In one line: 攻略 tell you what to do. This makes sure you actually do it.
 
 ## Can't I just ask ChatGPT / DeepSeek?
 
-You can. But a general assistant:
+You can. But a general chatbot:
 
 - **Doesn't remember you across sessions** — every new chat is a fresh start. You re-explain your identity, your country, your progress.
 - **Has no structured flow** — it'll happily skip from insurance to itinerary because you asked, leaving a gap you won't notice until the appointment desk.
 - **Doesn't enforce the sensitive boundary** — it might casually ask you to upload your bank statement. This skill has a hard rule: remind only.
 - **May hallucinate visa center URLs** — this skill has all 29 official URLs verified and hardcoded.
 
-General LLMs can help. This is purpose-built for one outcome: **getting you to the visa center with every document in order.**
+General-purpose AI can help. This is purpose-built for one outcome: **getting you to the visa center with every document in order.**
 
 ---
 
 ## Install
 
-```bash
-# Clone to your global skills directory
-cd ~/.claude/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+Pure markdown, zero dependencies. Drop it into your agent's skills directory — works with any agent that reads skill files.
 
-# Or clone into a specific project
-cd your-project/.claude/skills
+**Claude Code:**
+```bash
+cd ~/.claude/skills
 git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
 ```
 
-No dependencies. No scripts. Pure markdown. Works immediately after clone.
+**Codex:**
+```bash
+cd ~/.codex/skills
+git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+```
+
+**OpenClaw / other agents:**
+```bash
+# Drop it into whichever directory your agent reads skills from
+git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+```
 
 ---
 
 ## First use
 
-Open Claude Code and say:
+Open your agent and say:
 
 ```
 办申根签
@@ -127,7 +135,7 @@ schengen-visa-guide/
 
 Five mechanisms, zero code:
 
-1. **Session gate** — every new session, Claude must read `progress.md` before responding. Dead instruction, no exceptions.
+1. **Session gate** — every new session, the agent must read `progress.md` before responding. Dead instruction, no exceptions.
 2. **Push-then-save** — user confirms item → write to `progress.md` → then reply. Save first, talk second.
 3. **Country router** — user picks a country → look up official URL from `country-notes.md`. Table lookup, not LLM guesswork.
 4. **Sensitive/non-sensitive split** — ID docs, academic records, financials = remind only. Itinerary, cover letter = can generate.

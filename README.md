@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-面向中国护照持有者的 Claude Code 技能。<br>
+面向中国护照持有者的 AI Agent 技能——纯 markdown，不挑平台。<br>
 把一条死攻略变成一个能跨会话连续工作的交互式签证向导。<br>
 关了窗口、明天再打开——它记得你办到哪了。
 </p>
@@ -34,11 +34,11 @@ DIY 申根签的真实体验：
 
 ## 这个 skill 做什么
 
-把 Claude 变成你的私人签证管家：
+把你的 AI Agent 变成私人签证管家：
 
 🪪 **自报身份** → 自动匹配材料清单（学生 17 项、在职 18 项、退休 17 项、自由职业 17 项、无业 17 项）
 
-🔁 **跨会话记忆** → 关窗口、明天再开，Claude 先读 `progress.md`，从上次断点继续——不用复述一个字
+🔁 **跨会话记忆** → 关窗口、明天再开，Agent 先读 `progress.md`，从上次断点继续——不用复述一个字
 
 📋 **逐项推进** → 17-18 份材料，每项讲清楚：去哪办、什么格式、容易踩什么坑
 
@@ -66,7 +66,7 @@ DIY 申根签的真实体验：
 
 ## 为什么不用 ChatGPT / DeepSeek？
 
-通用助手能做到一部分，但它：
+通用聊天助手能做到一部分，但它：
 
 - **跨会话即失忆**——每次新对话都是从头来，你得重新说身份、国家、进度
 - **没有固定流程**——你问保险它讲保险，你问行程它讲行程，中间漏了什么它不会主动提醒
@@ -79,17 +79,25 @@ DIY 申根签的真实体验：
 
 ## 安装
 
-```bash
-# 克隆到全局 skills 目录
-cd ~/.claude/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+纯 markdown，零依赖。放到 Agent 的 skills 目录即用。
 
-# 或者克隆到某个项目里
-cd your-project/.claude/skills
+**Claude Code：**
+```bash
+cd ~/.claude/skills
 git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
 ```
 
-零依赖、零脚本、纯 markdown，clone 即用。
+**Codex：**
+```bash
+cd ~/.codex/skills
+git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+```
+
+**OpenClaw / 其他 Agent：**
+```bash
+# 放到对应 Agent 读取 skills 的目录即可
+git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+```
 
 > 💡 **更新？** 在 skill 目录里 `git pull` 即可。项目持续迭代中，更多身份和国家流程正在补充。
 
@@ -97,7 +105,7 @@ git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-gu
 
 ## 上手
 
-在 Claude Code 里说：
+在 Agent 里说：
 
 ```
 办申根签
@@ -129,7 +137,7 @@ schengen-visa-guide/
 
 五个机制，零行代码：
 
-1. **会话启动门**——每次新会话，Claude 必须先读 `progress.md` 再开口。硬指令，无例外。
+1. **会话启动门**——每次新会话，Agent 必须先读 `progress.md` 再开口。硬指令，无例外。
 2. **先存再回**——用户说"好了" → 先写文件勾掉 → 再回复。落盘优先于输出。
 3. **申请国路由**——用户选国家 → 查 `country-notes.md` 获取官方直链。查表不推理，杜绝幻觉。
 4. **敏感/非敏感分界**——证件、学籍、资金 = 只提醒。行程单、解释信 = 可生成。
