@@ -1,12 +1,6 @@
 <h1 align="center">Schengen Visa Guide</h1>
 
 <p align="center">
-  <strong>English</strong>
-  &nbsp;·&nbsp;
-  <a href="README.md"><strong>简体中文</strong></a>
-</p>
-
-<p align="center">
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.0.0-orange" alt="Version"></a>
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
