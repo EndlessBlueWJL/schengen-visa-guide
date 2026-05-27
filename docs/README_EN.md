@@ -140,6 +140,13 @@ schengen-visa-guide/
 
 ---
 
+## Important notes
+
+- **Itinerary**: Use the Trip Planner (行程助手) app to build it yourself. Creating it by hand means you know where you're going each day — essential when the visa officer calls and quizzes you on your itinerary, flights, and hotels. If AI generates it, memorize the details. A wrong answer on the phone = rejection
+- **Cover letter**: After AI drafts it, review every sentence personally. The cover letter is a deciding factor for approval — inaccurate information will cost you the visa
+
+---
+
 ## Limitations
 
 - Chinese passport only (for now)
