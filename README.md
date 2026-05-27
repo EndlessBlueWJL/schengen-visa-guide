@@ -78,8 +78,6 @@
 
 ## 安装
 
-纯 markdown，零依赖。放到 Agent 的 skills 目录即用。
-
 **Claude Code：**
 ```bash
 cd ~/.claude/skills
