@@ -22,15 +22,10 @@ Works with Claude Code, Codex, OpenClaw, and any agent that reads skill files.
 
 ## The problem
 
-Three traps almost everyone falls into when DIY-ing a Schengen visa:
-
-**1. Too many guides, none written for you.** Xiaohongshu, Zhihu, Bilibili — each has useful bits, none is complete. Worse: none matches your specific identity. A student and an employed person need 3 completely different documents. Follow the wrong checklist and you won't know until the visa center turns you away.
-
-**2. Cross-session amnesia.** You can't prep everything in one sitting. Insurance on Monday, bank statements on Wednesday, itinerary on Friday. Close the chat window between sessions, and the AI forgets you're even applying for a visa. You explain everything from scratch, every time.
-
-**3. Hidden dependency chain.** Itinerary → hotel → flight. Each must align with the one before. Book hotels before the itinerary? Redo. Fly into a country that doesn't have the most days in your plan? Redo.
-
-And the worst part — when you get rejected, the visa officer won't tell you why. You guess, wait 3 weeks, and roll the dice again.
+- Too many guides, none written for your identity
+- AI forgets everything the moment you close the window
+- Documents depend on each other — wrong order means redoing work
+- Get rejected? They won't tell you why. You guess, wait 3 weeks, roll the dice again
 
 ---
 
