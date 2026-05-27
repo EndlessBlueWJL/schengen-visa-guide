@@ -1,81 +1,154 @@
-# Schengen Visa Guide — Claude Code Skill
+<h1 align="center">Schengen Visa Guide</h1>
 
-一个给 Claude Code 用的申根签证助手技能。面向中国护照持有者，覆盖全部 29 个申根国的短期旅游签证（C 签），支持学生、在职、退休、自由职业、无业五种身份。
+<p align="center">
+  <strong>English</strong>
+  &nbsp;·&nbsp;
+  <a href="README.md"><strong>简体中文</strong></a>
+</p>
 
-## 它做什么
+<p align="center">
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.0.0-orange" alt="Version"></a>
+  &nbsp;
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+</p>
 
-这个 skill 把一条死攻略变成一个**能跨会话连续工作的交互式向导**：
+<p align="center">
+For Chinese passport holders — a Claude Code skill that turns a chaotic visa checklist<br>
+into a session-persistent, step-by-step interactive wizard.<br>
+It remembers where you left off. It knows what you still need. It gets you to the appointment.
+</p>
 
-- **断点续办**：每次新会话自动读取进度文件，从上次停下的地方继续，不用复述
-- **按身份出清单**：根据你的身份给出定制化材料清单（学生 17 项、在职 18 项等）
-- **逐项准备**：按依赖顺序逐项引导，完成一项勾一项
-- **敏感边界**：证件照、银行流水、户口本只提醒怎么办，绝不接触；行程单和解释信可以直接生成
-- **29 国直链**：内置全部申根国官方签证中心网址，法国/意大利/西班牙有详细预约流程
+---
 
-## 安装
+## The problem
 
-### 方式一：克隆到全局 skills 目录
+DIY Schengen visa from China is a mess:
+
+> Open 8 tabs → read 5攻略 → none match your identity → forget what you did yesterday → miss one document → rejected.
+
+攻略 are dead text. They don't know if you're a student or employed. They don't tell you that you forgot item #7 until it's too late. And when you close the chat window, they forget everything.
+
+**The real cost isn't the rejection — it's the 3-week redo loop.**
+
+---
+
+## What this does
+
+This skill turns Claude into your personal visa handler:
+
+🪪 **Identify yourself once** → checklist tailored to you (5 identity types: student, employed, retired, freelancer, unemployed)
+
+🔁 **Cross-session memory** → close the window, come back tomorrow, Claude reads `progress.md` and picks up exactly where you stopped — zero repetition
+
+📋 **One item at a time** → 17–18 documents, each with clear instructions: where to get it, what format, common pitfalls
+
+🛡️ **Sensitive boundary baked in** → passport scans, bank statements, ID photos — reminded, never generated. Itineraries and cover letters — generated, never faked
+
+🌍 **29 countries, one lookup table** → official visa center URLs for every Schengen state. France/Italy/Spain have full appointment walkthroughs
+
+📞 **Prepped for the phone call** → itinerary logic catches Monday-closed museums, impossible same-day city hops, and country-day mismatches — so the visa officer's random question doesn't trip you
+
+---
+
+## How it differs from reading a 攻略
+
+| 攻略 (Guides) | This |
+|---|---|
+| Static text, one-size-fits-all | Custom checklist by **your** identity |
+| You track progress in your head | `progress.md` — checked off as you go, survives reboots |
+| "Go to the visa center website" | Exact URLs + step-by-step appointment flow per country |
+| Hope you don't forget item #8 | Final review re-checks **every** checkbox, even the ticked ones |
+| AI generates generic cover letters | Cover letter template asks for **your** truth first, then polishes |
+
+In one line: 攻略 tell you what to do. This makes sure you actually do it.
+
+---
+
+## Can't I just ask ChatGPT / DeepSeek?
+
+You can. But a general assistant:
+
+- **Doesn't remember you across sessions** — every new chat is a fresh start. You re-explain your identity, your country, your progress.
+- **Has no structured flow** — it'll happily skip from insurance to itinerary because you asked, leaving a gap you won't notice until the appointment desk.
+- **Doesn't enforce the sensitive boundary** — it might casually ask you to upload your bank statement. This skill has a hard rule: remind only.
+- **May hallucinate visa center URLs** — this skill has all 29 official URLs verified and hardcoded.
+
+General LLMs can help. This is purpose-built for one outcome: **getting you to the visa center with every document in order.**
+
+---
+
+## Install
 
 ```bash
+# Clone to your global skills directory
 cd ~/.claude/skills
-git clone https://github.com/<your-username>/schengen-visa-skill.git schengen-visa-guide
-```
+git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
 
-### 方式二：克隆到某个项目的 skills 目录
-
-```bash
+# Or clone into a specific project
 cd your-project/.claude/skills
-git clone https://github.com/<your-username>/schengen-visa-skill.git schengen-visa-guide
+git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
 ```
 
-### 方式三：直接下载
+No dependencies. No scripts. Pure markdown. Works immediately after clone.
 
-下载 ZIP 解压到 `~/.claude/skills/schengen-visa-guide/` 即可。
+> 💡 **Updating?** `git pull` in the skill directory. The skill is under active development — more identity types and country flows are being added.
 
-## 使用
+---
 
-在 Claude Code 中说：
+## First use
+
+Open Claude Code and say:
 
 ```
 办申根签
 ```
 
-skill 会自动激活，从询问身份开始一步步引导你完成全部材料准备。
+The skill activates, reads `progress.md` (creates it if first time), and starts at the step where you are. Five identity types supported from day one — just pick yours.
 
-## 项目结构
+---
+
+## Project structure
 
 ```
 schengen-visa-guide/
-├── SKILL.md                      # 主控文件，完整交互流程和状态管理
+├── SKILL.md                      # Main wizard — full interactive flow + state machine
 ├── references/
-│   ├── checklist.md              # 材料清单详细说明
-│   ├── country-notes.md          # 29 国签证中心网址 + 三国对比
-│   ├── cover-letter.md           # 解释信模板与写作指南
-│   └── itinerary.md              # 行程单生成规则
+│   ├── checklist.md              # Detailed per-document instructions by identity
+│   ├── country-notes.md          # All 29 Schengen state URLs + France/Italy/Spain walkthrough
+│   ├── cover-letter.md           # Cover letter template + common doubt counter-strategies
+│   └── itinerary.md              # Itinerary generation rules + opening-hours verification
 └── docs/
-    ├── design.md                 # 设计文档
-    ├── plan.md                   # 实现计划
-    └── project-description.md    # 项目说明（设计理念）
+    ├── design.md                 # Architecture & design rationale
+    ├── plan.md                   # Implementation plan
+    └── project-description.md    # Design philosophy
 ```
 
-## 工作原理
+---
 
-核心是五个机制：
+## How it works under the hood
 
-1. **会话启动门**：每次新会话模型必须先读 progress 文件，再回复用户
-2. **逐项推送 + 即时落盘**：用户确认一项 → 先写文件勾掉 → 再回复，先存再回
-3. **申请国自适应路由**：选国后从 country-notes 查直链和流程，查表不推理
-4. **敏感与非敏感边界**：证件/学籍/资金只提醒，行程单/解释信可生成
-5. **最终确认**：全部勾完后再逐项复核，因为勾选和材料真正就位之间可能有差距
+Five mechanisms, zero code:
 
-纯 markdown，零依赖，不需要数据库。
+1. **Session gate** — every new session, Claude must read `progress.md` before responding. Dead instruction, no exceptions.
+2. **Push-then-save** — user confirms item → write to `progress.md` → then reply. Save first, talk second.
+3. **Country router** — user picks a country → look up official URL from `country-notes.md`. Table lookup, not LLM guesswork.
+4. **Sensitive/non-sensitive split** — ID docs, academic records, financials = remind only. Itinerary, cover letter = can generate.
+5. **Final reconciliation** — re-check every item, including ticked ones, because a tick and a document-in-hand are two different things.
 
-## 限制
+---
 
-- 仅中国护照
-- 仅申根短期旅游签（C 签）
-- 非申根国家会主动拒绝
+## Limitations
+
+- Chinese passport only (for now)
+- Schengen short-stay tourist visa (Type C) only
+- Non-Schengen countries are explicitly rejected
+
+---
 
 ## License
 
-MIT
+MIT — commercial use, modification, closed-source integration all fine.
+
+---
+
+*攻略 is a noun. This is a verb.*
