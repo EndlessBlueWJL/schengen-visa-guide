@@ -38,7 +38,8 @@ This skill turns your AI agent into a personal visa handler:
 
 📋 **One item at a time** → 17–18 documents, each with clear instructions: where to get it, what format, common pitfalls
 
-🛡️ **Sensitive boundary baked in** → passport scans, bank statements, ID photos — reminded, never generated. Itineraries and cover letters — generated, never faked
+🛡️ **Sensitive boundary baked in** → passport scans, bank statements, ID photos — reminded, never generated.
+                                        Itineraries and cover letters — generated, never faked
 
 🌍 **29 countries, one lookup table** → official visa center URLs for every Schengen state. France/Italy/Spain have full appointment walkthroughs
 
@@ -50,32 +51,32 @@ This skill turns your AI agent into a personal visa handler:
 
 | 攻略 (Guides) | This |
 |---|---|
-| Static text, one-size-fits-all | Custom checklist by **your** identity |
+| Static text, same for everyone | Custom checklist by **your** identity |
 | You track progress in your head | `progress.md` — checked off as you go, survives reboots |
 | "Go to the visa center website" | Exact URLs + step-by-step appointment flow per country |
 | Hope you don't forget item #8 | Final review re-checks **every** checkbox, even the ticked ones |
 | AI generates generic cover letters | Cover letter template asks for **your** truth first, then polishes |
 
-In one line: 攻略 tell you what to do. This makes sure you actually do it.
+In one line: 攻略 tell you what to do. This skill guides you through and makes sure you actually do it.
 
 ---
 
 ## Can't I just ask ChatGPT / DeepSeek?
 
-You can. But a general chatbot:
+General-purpose AI can help, but it:
 
-- **Doesn't remember you across sessions** — every new chat is a fresh start. You re-explain your identity, your country, your progress.
-- **Has no structured flow** — it'll happily skip from insurance to itinerary because you asked, leaving a gap you won't notice until the appointment desk.
-- **Doesn't enforce the sensitive boundary** — it might casually ask you to upload your bank statement. This skill has a hard rule: remind only.
-- **May hallucinate visa center URLs** — this skill has all 29 official URLs verified and hardcoded.
+- **Cross-session amnesia** — AI can't precisely remember your progress. It has a vague sense at best. Every session may require re-explaining
+- **No structured flow** — ask about insurance, it talks insurance. Ask about itinerary, it talks itinerary. It won't proactively flag what you missed
+- **No sensitive boundary** — might casually ask you to upload your bank statement. This skill has a hard rule: remind only
+- **Visa center URLs may be hallucinations** — this skill has all 29 official URLs verified and hardcoded
 
-General-purpose AI can help. This is purpose-built for one outcome: **getting you to the visa center with every document in order.**
+General AI can help. This is purpose-built for one outcome: **getting you to the visa center with every document in order.**
 
 ---
 
 ## Install
 
-Pure markdown, zero dependencies. Drop it into your agent's skills directory — works with any agent that reads skill files.
+Pure markdown, zero dependencies. Drop it into your agent's skills directory.
 
 **Claude Code:**
 ```bash
@@ -94,6 +95,8 @@ git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-gu
 # Drop it into whichever directory your agent reads skills from
 git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
 ```
+
+> 💡 **Updating?** `git pull` inside the skill directory. This project is under active development — more identity types and country flows are being added.
 
 ---
 
@@ -128,8 +131,6 @@ schengen-visa-guide/
 ---
 
 ## How it works under the hood
-
-Five mechanisms, zero code:
 
 1. **Session gate** — every new session, the agent must read `progress.md` before responding. Dead instruction, no exceptions.
 2. **Push-then-save** — user confirms item → write to `progress.md` → then reply. Save first, talk second.
