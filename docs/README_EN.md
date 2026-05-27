@@ -1,5 +1,7 @@
 <h1 align="center">Schengen Visa Guide</h1>
 
+<p align="center"><em>What shall we do for Schengen visa?!</em></p>
+
 <p align="center">
   <strong>English</strong>
   &nbsp;·&nbsp;
@@ -142,7 +144,7 @@ schengen-visa-guide/
 
 ## Important notes
 
-- **Itinerary**: Use the Trip Planner (行程助手) app to build it yourself. Creating it by hand means you know where you're going each day — essential when the visa officer calls and quizzes you on your itinerary, flights, and hotels. If AI generates it, memorize the details. A wrong answer on the phone = rejection
+- **Itinerary**: You can also use the Trip Planner (行程助手) app to build it yourself. Creating it by hand means you know where you're going each day — essential when the visa officer calls and quizzes you on your itinerary, flights, and hotels. If AI generates it, memorize the details. A wrong answer on the phone = rejection
 - **Cover letter**: After AI drafts it, review every sentence personally. The cover letter is a deciding factor for approval — inaccurate information will cost you the visa
 
 ---
