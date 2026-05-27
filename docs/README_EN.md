@@ -22,27 +22,15 @@ Works with Claude Code, Codex, OpenClaw, and any agent that reads skill files.
 
 ## The problem
 
-DIY Schengen visa isn't paperwork — it's information warfare.
+Three traps almost everyone falls into when DIY-ing a Schengen visa:
 
-**Too many guides, no complete picture.**
+**1. Too many guides, none written for you.** Xiaohongshu, Zhihu, Bilibili — each has useful bits, none is complete. Worse: none matches your specific identity. A student and an employed person need 3 completely different documents. Follow the wrong checklist and you won't know until the visa center turns you away.
 
-One Xiaohongshu post covers the checklist. A Zhihu answer explains the appointment. A Bilibili video warns about common mistakes. Each is useful. None is complete. You end up with 8 tabs open, cross-referencing — only to find that none of them actually match your specific situation.
+**2. Cross-session amnesia.** You can't prep everything in one sitting. Insurance on Monday, bank statements on Wednesday, itinerary on Friday. Close the chat window between sessions, and the AI forgets you're even applying for a visa. You explain everything from scratch, every time.
 
-**Wrong identity, wrong documents.**
+**3. Hidden dependency chain.** Itinerary → hotel → flight. Each must align with the one before. Book hotels before the itinerary? Redo. Fly into a country that doesn't have the most days in your plan? Redo.
 
-A student needs enrollment certificates and notarized parent sponsorship. An employed person needs company letters, business licenses, and salary slips. A freelancer needs to explain irregular income without standard proof — and may need a notarized relationship certificate for a sponsor. Same visa, completely different document stacks. Most guides are written for the "average applicant" — and average fits nobody.
-
-**Cross-session amnesia. Every new chat is day one.**
-
-Document prep takes 1–2 weeks, not one evening. Monday you sort insurance, Wednesday you print bank statements, Friday you book the appointment. You close the chat window between sessions. When you open it again — the AI doesn't even remember you're applying for a visa. You re-explain your identity, your country, your progress. After the third time, you give up and start tracking it in your head. Then you miss item #7.
-
-**Documents form a dependency chain. Wrong order means redoing work.**
-
-The itinerary dictates hotel dates. Hotel bookings must match itinerary cities. The flight reservation must align with the entry country — which must also be the country with the most itinerary days. Book hotels before the itinerary? Redo. Fly into Paris but Italy has the most days in your plan? Redo. No guide tells you the correct order — because a static page is flat, and this process has dependencies.
-
-**The real cost isn't rejection. It's not knowing why you were rejected.**
-
-The visa officer won't give you a reason. You get your passport back, stare at the rejection stamp, and guess: was the bank balance too low? Was the itinerary too rushed? Did the cover letter sound AI-generated? Then you wait another 3 weeks and roll the dice again.
+And the worst part — when you get rejected, the visa officer won't tell you why. You guess, wait 3 weeks, and roll the dice again.
 
 ---
 
