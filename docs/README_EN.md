@@ -83,19 +83,19 @@ Pure markdown, zero dependencies. Drop it into your agent's skills directory.
 **Claude Code:**
 ```bash
 cd ~/.claude/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/JINGLONG-WANG/schengen-visa-guide.git schengen-visa-guide
 ```
 
 **Codex:**
 ```bash
 cd ~/.codex/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/JINGLONG-WANG/schengen-visa-guide.git schengen-visa-guide
 ```
 
 **OpenClaw / other agents:**
 ```bash
 # Drop it into whichever directory your agent reads skills from
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/JINGLONG-WANG/schengen-visa-guide.git schengen-visa-guide
 ```
 
 > 💡 **Updating?** `git pull` inside the skill directory. This project is under active development — more identity types and country flows are being added.
