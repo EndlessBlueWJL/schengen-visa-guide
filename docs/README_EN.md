@@ -14,8 +14,8 @@
 
 <p align="center">
 An AI agent skill for Chinese passport holders — pure markdown, platform-agnostic.<br>
-Turns a chaotic visa checklist into a session-persistent, step-by-step interactive wizard.<br>
-Works with Claude Code, Codex, OpenClaw, and any agent that reads skill files.
+Turns a dead guide into a session-persistent, step-by-step interactive wizard.<br>
+Close the window, open it tomorrow — it remembers where you left off.
 </p>
 
 ---
