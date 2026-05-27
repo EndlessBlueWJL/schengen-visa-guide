@@ -78,8 +78,6 @@ General AI can help. This is purpose-built for one outcome: **getting you to the
 
 ## Install
 
-Pure markdown, zero dependencies. Drop it into your agent's skills directory.
-
 **Claude Code:**
 ```bash
 cd ~/.claude/skills
