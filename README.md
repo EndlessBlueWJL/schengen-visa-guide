@@ -81,19 +81,19 @@
 **Claude Code：**
 ```bash
 cd ~/.claude/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
 
 **Codex：**
 ```bash
 cd ~/.codex/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
 
 **OpenClaw / 其他 Agent：**
 ```bash
 # 放到对应 Agent 读取 skills 的目录即可
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
 
 > 💡 **更新？** 在 skill 目录里 `git pull` 即可。项目持续迭代中，更多身份和国家流程正在补充。

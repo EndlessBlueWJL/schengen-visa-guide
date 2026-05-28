@@ -81,19 +81,19 @@ General AI can help. This is purpose-built for one outcome: **getting you to the
 **Claude Code:**
 ```bash
 cd ~/.claude/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
 
 **Codex:**
 ```bash
 cd ~/.codex/skills
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
 
 **OpenClaw / other agents:**
 ```bash
 # Drop it into whichever directory your agent reads skills from
-git clone https://github.com/WJL-666123/schengen-visa-guide.git schengen-visa-guide
+git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
 
 > 💡 **Updating?** `git pull` inside the skill directory. This project is under active development — more identity types and country flows are being added.
