@@ -1,21 +1,23 @@
 ---
 name: schengen-visa-guide
-description: Use EXCLUSIVELY when user mentions Schengen visa (申根签/申根签证/办申根签) or wants to apply for a tourist visa to Schengen countries (France, Italy, Spain, Germany, Switzerland, etc.). Covers ALL Chinese mainland passport holders — student, employed, retired, freelancer, or unemployed. This skill ONLY covers Schengen short-stay tourist visas.
+description: Use EXCLUSIVELY when user mentions Schengen visa (申根签/申根签证/办申根签) or wants to apply for a tourist visa to Schengen countries (France, Italy, Spain, Germany, Switzerland, etc.). Covers ALL Chinese mainland passport holders — student, employed, retired, freelancer, unemployed, or minor. This skill ONLY covers Schengen short-stay tourist visas.
 ---
 
 # Schengen Visa Guide
 
+> ⚠️ **信息时效**：本指南信息截至 2025-07。签证政策、费率、网址及各国每日参考金额会调整，所有材料要求**最终以申请国使领馆官网为准**。涉及具体数字时，提醒用户以官网为准。
+
 ## GATE
 
-Every session starts here. Before any output:
+Every session starts here. Before any flow output：
 
-1. Read progress.md.
-2. Check `current_step`.
-3. Jump to that step below. Execute the SAY template.
+1. 读 progress.md（路径按平台自适应，见下方 PROGRESS FILE 段；目录不存在则创建）。
+2. 检查 `current_step`。
+3. 跳到对应步骤执行。
 
-**Do not say hello. Do not ask what the user needs. Read progress.md first.**
+**单点咨询例外**：若用户只是问一个独立问题（如"法国签证费多少""意大利 VFS 网址是什么"），直接回答即可，不必启动完整流程。只有当用户确实要**办申根签**时才进入下面的主流程。
 
-If progress.md doesn't exist → create it (template at bottom of this file), then go to Step 1.
+若 progress.md 不存在 → 用底部模板新建 → 进入 Step 1。
 
 ---
 
@@ -25,12 +27,12 @@ If progress.md doesn't exist → create it (template at bottom of this file), th
 Step 1: 询问身份
 Step 2: 给出材料清单 + 流程图
 Step 3: 询问申请国家
-Step 4: 给出预约方法
+Step 4: 给出预约方法 + 时间费用提示
 Step 5: 逐项准备资料
 Step 6: 最终核对
 ```
 
-**Never skip steps. Never reorder. Never branch off this main line unless the user explicitly asks for something else.**
+**不要跳步、不要重排、不要偏离主线**，除非用户明确要求别的。
 
 ---
 
@@ -38,16 +40,13 @@ Step 6: 最终核对
 
 **current_step = identity**
 
-**SAY (COPY EXACTLY):**
-```
-你目前的身份是？
+向用户说明（须包含全部选项，可用自然语气）：
 
-在校学生 / 在职 / 退休 / 自由职业 / 无业
-```
+> 你目前的身份是？
+>
+> 在校学生 / 在职 / 退休 / 自由职业 / 无业 / 未成年人（18 岁以下）
 
-**Must NOT output anything else.**
-
-**After user answers:** Write 身份 to progress.md. Set current_step = checklist. Go to Step 2.
+**After user answers:** 写身份到 progress.md。Set current_step = checklist. Go to Step 2.
 
 ---
 
@@ -55,238 +54,14 @@ Step 6: 最终核对
 
 **current_step = checklist**
 
-Pick the template matching the user's identity. Show checklist first, then process flow. Do NOT ask any questions yet.
+1. 读 `references/checklist.md`，**展示与用户身份匹配的小节**（证件类 + 对应身份的 6-8 项 + 旅行保障 + 资金类 + 行程机酒 + 已婚附加 + 解释信 + 预约凭证）。
+2. 未成年人额外展示"未成年人（18 岁以下）"专节。
+3. 展示底部"通用流程"流程图。
+4. 提醒用户：信息以官网为准；完成一项告诉你就好，会逐项勾掉。
 
-### 在校学生
+**不要在此步追问任何问题**，只展示清单 + 流程。
 
-**SAY (COPY EXACTLY):**
-```
-材料清单（共 17 项）：
-
-【证件类】
-□ 1. 护照原件 + 所有面复印件 ×2 份（有效期≥离开申根区后3个月，≥2空白页）
-□ 2. 旧护照复印件（如有）
-□ 3. 身份证原件 + 复印件
-□ 4. 户口本整本复印件（封面到最后一页）
-□ 5. 两寸白底证件照
-
-【学生身份】
-□ 6. 中英文在读证明（签字+公章）
-□ 7. 学生证原件 + 复印件
-□ 8. 学信网中英文学籍证明
-
-【旅行保障】
-□ 9. 旅行保险（保额≥3万欧元，覆盖全程，彩打前两页）
-
-【资金类】
-□ 10. 近3-6个月银行流水（余额≥3万）
-□ 11. 房产证/车产复印件（有就提供，加分项）
-
-【行程与机酒】
-□ 12. 行程单（申请国天数最长）
-□ 13. 机票预订单（trip.com 不付款）
-□ 14. 酒店预订单（携程免费取消）
-
-【灵魂材料】
-□ 15. 解释信（资金来源 + 回国约束力 + 旅行目的）
-
-【预约凭证】
-□ 16. 签证申请表
-□ 17. 签证中心预约单
-
----
-
-流程图：
-
-选申请国 → 网上预约 → 准备证件 → 学生材料 → 买保险 → 打流水 → 做行程单 → 订机票 → 订酒店 → 写解释信 → 递签 → 等出签
-```
-
-### 在职
-
-**SAY (COPY EXACTLY):**
-```
-材料清单（共 18 项）：
-
-【证件类】
-□ 1. 护照原件 + 所有面复印件 ×2 份（有效期≥离开申根区后3个月，≥2空白页）
-□ 2. 旧护照复印件（如有）
-□ 3. 身份证原件 + 复印件
-□ 4. 户口本整本复印件（封面到最后一页）
-□ 5. 两寸白底证件照
-
-【在职身份】
-□ 6. 在职证明（公司抬头纸，法人签字+公章，体现姓名/职务/薪资/入职年限/准假日期）
-□ 7. 营业执照副本复印件（加盖公章）
-□ 8. 近6个月工资流水
-
-【旅行保障】
-□ 9. 旅行保险（保额≥3万欧元，覆盖全程，彩打前两页）
-
-【资金类】
-□ 10. 近3-6个月银行流水（余额≥3万）
-□ 11. 房产证/车产复印件（有就提供，加分项）
-
-【行程与机酒】
-□ 12. 行程单（申请国天数最长）
-□ 13. 机票预订单（trip.com 不付款）
-□ 14. 酒店预订单（携程免费取消）
-
-【已婚附加】（已婚者准备，未婚跳过）
-□ 15. 结婚证复印件 + 英文翻译件
-
-【灵魂材料】
-□ 16. 解释信（资金来源 + 回国约束力 + 旅行目的）
-
-【预约凭证】
-□ 17. 签证申请表
-□ 18. 签证中心预约单
-
----
-
-流程图：
-
-选申请国 → 网上预约 → 准备证件 → 公司开证明 → 买保险 → 打流水 → 做行程单 → 订机票 → 订酒店 → 结婚证（如有）→ 写解释信 → 递签 → 等出签
-```
-
-### 退休
-
-**SAY (COPY EXACTLY):**
-```
-材料清单（共 17 项）：
-
-【证件类】
-□ 1. 护照原件 + 所有面复印件 ×2 份（有效期≥离开申根区后3个月，≥2空白页）
-□ 2. 旧护照复印件（如有）
-□ 3. 身份证原件 + 复印件
-□ 4. 户口本整本复印件（封面到最后一页）
-□ 5. 两寸白底证件照
-
-【退休身份】
-□ 6. 退休证原件 + 复印件
-□ 7. 退休金流水（近3-6个月）
-
-【旅行保障】
-□ 8. 旅行保险（保额≥3万欧元，覆盖全程，彩打前两页）
-
-【资金类】
-□ 9. 近3-6个月银行流水（余额≥3万）
-□ 10. 房产证/车产复印件（有就提供，加分项）
-
-【行程与机酒】
-□ 11. 行程单（申请国天数最长）
-□ 12. 机票预订单（trip.com 不付款）
-□ 13. 酒店预订单（携程免费取消）
-
-【已婚附加】（已婚者准备，未婚跳过）
-□ 14. 结婚证复印件 + 英文翻译件
-
-【灵魂材料】
-□ 15. 解释信（资金来源 + 回国约束力 + 旅行目的）
-
-【预约凭证】
-□ 16. 签证申请表
-□ 17. 签证中心预约单
-
----
-
-流程图：
-
-选申请国 → 网上预约 → 准备证件 → 退休材料 → 买保险 → 打流水 → 做行程单 → 订机票 → 订酒店 → 结婚证（如有）→ 写解释信 → 递签 → 等出签
-```
-
-### 自由职业
-
-**SAY (COPY EXACTLY):**
-```
-材料清单（共 17 项）：
-
-【证件类】
-□ 1. 护照原件 + 所有面复印件 ×2 份（有效期≥离开申根区后3个月，≥2空白页）
-□ 2. 旧护照复印件（如有）
-□ 3. 身份证原件 + 复印件
-□ 4. 户口本整本复印件（封面到最后一页）
-□ 5. 两寸白底证件照
-
-【身份材料】
-□ 6. 收入来源说明（解释信里详细说明，附 freelancer 合同/稿费记录/投资收益证明等）
-□ 7. 出资人材料（如有人出资：出资人银行流水 + 出资人身份证复印件 + 亲属关系公证。无人出资则跳过）
-
-【旅行保障】
-□ 8. 旅行保险（保额≥3万欧元，覆盖全程，彩打前两页）
-
-【资金类】
-□ 9. 近3-6个月银行流水（余额≥3万）
-□ 10. 房产证/车产复印件（有就提供，加分项）
-
-【行程与机酒】
-□ 11. 行程单（申请国天数最长）
-□ 12. 机票预订单（trip.com 不付款）
-□ 13. 酒店预订单（携程免费取消）
-
-【已婚附加】（已婚者准备，未婚跳过）
-□ 14. 结婚证复印件 + 英文翻译件
-
-【灵魂材料】
-□ 15. 解释信（资金来源 + 回国约束力 + 旅行目的）
-
-【预约凭证】
-□ 16. 签证申请表
-□ 17. 签证中心预约单
-
----
-
-流程图：
-
-选申请国 → 网上预约 → 准备证件 → 收入/出资人材料 → 买保险 → 打流水 → 做行程单 → 订机票 → 订酒店 → 结婚证（如有）→ 写解释信 → 递签 → 等出签
-```
-
-### 无业
-
-**SAY (COPY EXACTLY):**
-```
-材料清单（共 17 项）：
-
-【证件类】
-□ 1. 护照原件 + 所有面复印件 ×2 份（有效期≥离开申根区后3个月，≥2空白页）
-□ 2. 旧护照复印件（如有）
-□ 3. 身份证原件 + 复印件
-□ 4. 户口本整本复印件（封面到最后一页）
-□ 5. 两寸白底证件照
-
-【身份材料】
-□ 6. 收入来源说明（解释信里详细说明）
-□ 7. 出资人材料（如有人出资：出资人银行流水 + 出资人身份证复印件 + 亲属关系公证。不在同一户口本需亲属关系公证。无人出资则跳过）
-
-【旅行保障】
-□ 8. 旅行保险（保额≥3万欧元，覆盖全程，彩打前两页）
-
-【资金类】
-□ 9. 近3-6个月银行流水（余额≥3万）
-□ 10. 房产证/车产复印件（有就提供，加分项）
-
-【行程与机酒】
-□ 11. 行程单（申请国天数最长）
-□ 12. 机票预订单（trip.com 不付款）
-□ 13. 酒店预订单（携程免费取消）
-
-【已婚附加】（已婚者准备，未婚跳过）
-□ 14. 结婚证复印件 + 英文翻译件
-
-【灵魂材料】
-□ 15. 解释信（资金来源 + 回国约束力 + 旅行目的）
-
-【预约凭证】
-□ 16. 签证申请表
-□ 17. 签证中心预约单
-
----
-
-流程图：
-
-选申请国 → 网上预约 → 准备证件 → 收入/出资人材料 → 买保险 → 打流水 → 做行程单 → 订机票 → 订酒店 → 结婚证（如有）→ 写解释信 → 递签 → 等出签
-```
-
-**After showing checklist + flow:** Write checklist to progress.md. Set current_step = country. Go to Step 3.
+**After showing:** 写 checklist 到 progress.md。Set current_step = country. Go to Step 3.
 
 ---
 
@@ -294,26 +69,30 @@ Pick the template matching the user's identity. Show checklist first, then proce
 
 **current_step = country**
 
-**SAY (COPY EXACTLY):**
-```
-你想申请哪个申根国家？首次申请推荐这三个：
+向用户说明（须包含推荐三国及理由）：
 
-1. 法国 — 不分领区，全国任意城市都能递签，不用回老家。通过 TLScontact 预约，流程清晰。
-2. 意大利 — 通过率不错，对学生和自由职业比较友好。
-3. 西班牙 — 有时给的停留天数会比行程单写的多几天，比较大方。
-```
+> 你想申请哪个申根国家？首次申请推荐这三个：
+>
+> 1. 法国 — 不分领区，全国任意城市都能递签，不用回老家。通过 TLScontact 预约，流程清晰。
+> 2. 意大利 — 通过率不错，对学生和自由职业比较友好。
+> 3. 西班牙 — 有时给的停留天数会比行程单写的多几天，比较大方。
 
-**Must NOT ask anything else. No dates, no passport, no marriage.**
+**不要追问日期、护照、婚姻等其他信息。**
 
-**After user answers:** Write 目标国家 to progress.md. Set current_step = appointment. Go to Step 4.
+**After user answers:** 写目标国家到 progress.md。Set current_step = appointment. Go to Step 4.
 
 ---
 
-## Step 4: 给出预约方法
+## Step 4: 给出预约方法 + 时间费用提示
 
 **current_step = appointment**
 
-Look up the country and output the matching template.
+1. 读 `references/country-notes.md`，按用户所选国家展示对应预约网址 + 流程 + 领区判定。
+2. 展示"录指纹"提醒（首次本人录十指，59 个月有效；12 岁以下免录但需到场）。
+3. 展示"时间与费用"提示（处理时间约 15 天最长 45 天，建议提前 1-1.5 个月；签证费成人约 €90，6-12 岁 €45，6 岁以下免费；服务费约 ¥200-300；以官网为准）。
+4. 提醒：行程单里该国天数写最长，出入境机票最好也走该国，酒店日期城市与行程单对齐。
+
+预约网址路由表（详情见 country-notes.md）：
 
 | Country | System | URL |
 |---|---|---|
@@ -325,71 +104,6 @@ Look up the country and output the matching template.
 | Netherlands | VFS Global | https://visa.vfsglobal.com/chn/zh/nld |
 | Other | See references/country-notes.md | — |
 
-### France
-
-**SAY (COPY EXACTLY):**
-```
-法国签证分两步：
-
-第 1 步：先去 France-Visas 填表
-网址：https://france-visas.gouv.fr/zh
-填完会给你一个 FV 编号，截图保存。
-
-第 2 步：拿着 FV 编号去 TLScontact 约时间
-网址：https://visas-fr.tlscontact.cn
-
-法国不分领区，全国任意城市都可以递签。
-
-提醒：行程单里法国的天数要写最长，出入境机票最好也是法国，酒店跟行程单的日期城市要对上。
-
-预约好了就说"约好了"，我们开始准备材料。
-```
-
-### Italy
-
-**SAY (COPY EXACTLY):**
-```
-意大利通过 VFS Global 预约：
-网址：https://visa.vfsglobal.com/chn/zh/ita
-
-流程：
-1. 填完申请表 → 获取申请码，截图保存
-2. 系统会发邮件给你，里面有派发的账号和密码
-3. 等待审核通过
-4. 审核通过后会再发邮件通知缴费
-5. 用派发的账号密码登录缴费
-
-提醒：行程单里意大利的天数要写最长，出入境机票最好也是意大利，酒店跟行程单的日期城市要对上。
-
-预约好了就说"约好了"，我们开始准备材料。
-```
-
-### Spain
-
-**SAY (COPY EXACTLY):**
-```
-西班牙通过 BLS 预约：
-网址：https://web.blscn.cn
-
-填表 + 预约都在这个网站完成。
-
-提醒：行程单里西班牙的天数要写最长，出入境机票最好也是西班牙，酒店跟行程单的日期城市要对上。西班牙有时会比行程多给几天。
-
-预约好了就说"约好了"，我们开始准备材料。
-```
-
-### Other countries
-
-**SAY (fill {country} and {url}, COPY EXACTLY otherwise):**
-```
-{country} 通过 {system} 预约：
-网址：{url}
-
-提醒：行程单里 {country} 的天数要写最长，出入境机票最好也是 {country}，酒店跟行程单的日期城市要对上。
-
-预约好了就说"约好了"，我们开始准备材料。
-```
-
 **After user confirms appointment done:** Set current_step = documents. Go to Step 5.
 
 ---
@@ -398,232 +112,130 @@ Look up the country and output the matching template.
 
 **current_step = documents**
 
-Guide through categories in this fixed order. One category at a time. After user confirms one category → check off items in progress.md → report progress → move to next.
+按下列固定分类顺序引导，一次一类。用户确认一类 → 在 progress.md 勾掉 → 报进度 → 下一类。各项详细说明见 `references/checklist.md`。
 
 **Fixed order:**
 
 | # | Category | Action |
 |---|---|---|
-| 1 | 证件类 | Remind only |
-| 2 | 身份材料 | Remind only (pick template matching identity) |
+| 1 | 证件类 | Remind only（含护照签发≤10年）|
+| 2 | 身份材料 | Remind only（按身份选模板；未成年人见专节）|
 | 3 | 旅行保险 | Remind + recommend 京东/支付宝 |
-| 4 | 资金类 | Remind only |
-| 5 | 行程与机酒 | 行程单(can generate) → 机票(trip.com) → 酒店(携程) |
+| 4 | 资金类 | Remind + 预算测算公式（见下方）|
+| 5 | 行程与机酒 | 行程单(can generate) → 机票(trip.com) → 酒店(多平台) |
 | 6 | 解释信 + 已婚附加 + 预约凭证 | 解释信(can generate), 已婚(如有则提醒), 预约凭证(打印) |
 
 ---
 
 ### Category 1: 证件类
 
-**SAY (COPY EXACTLY):**
-```
-先从证件开始：
+向用户说明（须含全部要点）：
+- 护照原件 + 所有面复印件 ×2 份：有效期超过离开申根区后 3 个月、≥2 空白页、**签发不超过 10 年**（三条都是硬性）。
+- 旧护照复印件：有则复印个人信息页+签证页+出入境盖章页，无则跳过。
+- 身份证原件 + 复印件：正反面复印在同一面。
+- 户口本整本复印件：封面到最后一页全部复印。
+- 两寸白底证件照：现场拍也行，自带要近期。
 
-1. 护照原件 + 所有面复印件 ×2 份 — 有效期要超过离开申根区后 3 个月，至少 2 页空白签证页。
-2. 旧护照复印件 — 有的话复印个人信息页+签证页+出入境盖章页。没有就跳过。
-3. 身份证原件 + 复印件 — 正反面复印在同一面。
-4. 户口本整本复印件 — 从封面到最后一页全部复印。
-5. 两寸白底证件照 — 签证中心现场拍也行，自己带的话要近期的。
-
-准备好了就说"证件好了"。
-```
+完成后用户说"证件好了"。
 
 ---
 
 ### Category 2: 身份材料
 
-Pick the one matching the user's identity.
+读 `references/checklist.md` 中与用户身份匹配的小节并展示要点。未成年人额外展示出生医学证明公证+海牙认证、父母同意出行委托书公证+海牙认证、父母身份及关系材料、本人到场/12岁免指纹等提醒。
 
-**在校学生 (COPY EXACTLY):**
-```
-学生身份材料：
-
-6. 中英文在读证明 — 学校教务处开具，老师签字 + 学校公章。
-7. 学生证原件 + 复印件 — 原件递签当天带过去。
-8. 学信网中英文学籍证明 — 学信网（www.chsi.com.cn）在线申请下载。
-
-准备好了就说"学生材料好了"。
-```
-
-**在职 (COPY EXACTLY):**
-```
-在职身份材料：
-
-6. 在职证明 — 公司抬头纸，体现姓名/职务/薪资/入职年限/准假日期，法人或人事签字 + 公章。
-7. 营业执照副本复印件 — 加盖公司公章。
-8. 近 6 个月工资流水 — 银行打印。
-
-准备好了就说"在职材料好了"。
-```
-
-**退休 (COPY EXACTLY):**
-```
-退休身份材料：
-
-6. 退休证原件 + 复印件。
-7. 退休金流水 — 近 3-6 个月。
-
-准备好了就说"退休材料好了"。
-```
-
-**自由职业 (COPY EXACTLY):**
-```
-身份材料：
-
-6. 收入来源说明 — 解释信里详细说明收入来源，附 freelancer 合同/稿费记录等。
-7. 出资人材料 — 有人出资才需要：出资人银行流水 + 身份证复印件 + 亲属关系公证。没人出资跳过。
-
-准备好了就说"身份材料好了"。
-```
-
-**无业 (COPY EXACTLY):**
-```
-身份材料：
-
-6. 收入来源说明 — 解释信里详细说明。
-7. 出资人材料 — 有人出资才需要：出资人银行流水 + 身份证复印件 + 亲属关系公证（不在同一户口本需要）。没人出资跳过。
-
-准备好了就说"身份材料好了"。
-```
+完成后用户说"身份材料好了"（学生/在职/退休按对应话术）。
 
 ---
 
 ### Category 3: 旅行保险
 
-**SAY (COPY EXACTLY):**
-```
-旅行保险：
+向用户说明（须含全部要点）：
+- 京东或支付宝搜"申根保险"。
+- 保额至少 3 万欧元，覆盖整个申根区，日期完整覆盖行程。
+- 出签前别退保，出签后可退。彩色打印前两页。
 
-京东或支付宝搜"申根保险"。
-要求：保额至少 3 万欧元，覆盖整个申根区，保险日期完整覆盖行程。
-出签前别退保，出签后可退。
-买了之后彩色打印前两页。
-
-买好了就说"保险好了"。
-```
+完成后用户说"保险好了"。
 
 ---
 
-### Category 4: 资金类
+### Category 4: 资金类 + 预算测算
 
-**SAY (COPY EXACTLY):**
-```
-资金证明：
+向用户说明（须含全部要点）：
+- 近 3-6 个月银行流水：银行打印，余额需覆盖整个行程。
+- **预算测算**：**不向用户展示公式**，只简要说明"按天数、参照中介/签证中心实操量级估算"，然后直接给出金额数字。若用户已知天数则直接算；若未知则问"你计划总共去多少天？"再算。计算用公式见 `references/checklist.md`（≤15 天 ¥2,000×天数；>15 天 ¥30,000 + ¥4,000×(天数−15)），agent 自行算出不展示。申瑞士等贵国上浮 20-30% 并说明。结果后附一句免责：实操参考值、非硬门槛、以官网为准、不要为凑此数临时大额转账。
+- 房产证/车产复印件：有就提供（只交复印件），没有跳过。
+- 父母/配偶出资另需出资人流水+在职证明，不在同一户口本需亲属关系公证+海牙认证。
 
-10. 近 3-6 个月银行流水 — 银行打印，余额至少 3 万以上。别临时大额转账。
-11. 房产证/车辆登记证复印件 — 有就提供，加分项。只交复印件。没有就跳过。
-
-准备好了就说"资金好了"。
-```
+完成后用户说"资金好了"。
 
 ---
 
 ### Category 5: 行程与机酒
 
-Three sub-steps in order.
+三个子步，按顺序。
 
-**5a: 行程单 (COPY EXACTLY):**
-```
-行程单：
+**5a: 行程单**
 
-我可以帮你生成，会直接显示在聊天里，同时给你两份文件：
-- 一份 PDF（打印直接递签）
-- 一份 Excel（可编辑，订完机酒后自己填进去）
+参考 `references/itinerary.md`。向用户说明（须含全部要点）：
+- 可以帮你生成，直接显示在聊天里，同时给 PDF（打印递签）+ Excel（可编辑，订完机酒后填）两份文件。
+- 强烈建议先用「行程助手」app 自己做一遍，加深印象，应对电调。
+- 要生成的话告诉我：想去哪些城市、出发日期、总共几天。
 
-在让我生成之前，强烈建议你先用「行程助手」app 自己做一遍——你自己动手排过，才会对每天去哪、住哪、怎么走有印象。递签后可能会接到电话核实（电调），签证官随机问你行程细节，答不上来直接拒签。
+**生成行程单时**（规则见 references/itinerary.md）：
+1. 直接在聊天里显示行程表。
+2. 生成 PDF + Excel 两个文件（生成方式按环境降级，见 itinerary.md）。
+3. 景点顺序顺路、节奏宽松（一天 2-3 个，最多 4）。
+4. 验证每个景点真实开放时间，不安排在闭馆日。
+5. PDF 填合理占位的酒店/交通；Excel 的酒店/交通栏留空。
+6. 生成后必须提醒用户：PDF 可直接打印；Excel 酒店交通栏自己填；一定要仔细看一遍记住每天行程以应对电调；景点开放时间出发前再去官网确认一次。
 
-要我给你生成的话，告诉我：想去哪些城市、出发日期、总共几天。
-```
+完成后用户确认 → 勾掉 → 进 5b。
 
-**When generating itinerary:**
-1. Show the itinerary table directly in chat.
-2. Generate TWO downloadable files:
-   - **PDF** — print-ready, clean formatting, for visa submission as-is.
-   - **Excel (.xlsx)** — editable, with 酒店 and 交通 columns left blank for user to fill in after booking.
-3. **Attraction order must be logical and 顺路** — same-day attractions in the same area, no criss-crossing the city. Plan a relaxed route: morning one spot, lunch, afternoon one spot, evening stroll. Two attractions per half-day max.
-4. **Pacing must be relaxed** — 2-3 attractions per day, max 4. Leave time for meals, rest, and transit between spots. Cross-city travel days: only one light activity after arrival. This is a visa document, not a real trip. Make it look like a normal person's vacation.
-5. Verify every attraction's real opening hours. Do NOT place an attraction on a day it is closed (e.g. Monday closures, public holidays). Check seasonal hours based on travel month.
-6. **PDF**: Fill in hotel and transportation with reasonable placeholders (e.g. "Paris Hotel", "Metro"). **Excel**: Leave hotel and transportation columns blank for user to edit.
-7. After output, MUST say (COPY EXACTLY):
-```
-行程单生成了。三件事：
+**5b: 机票预订单**
 
-1. PDF 可以直接打印递签。Excel 里酒店和交通栏空着——你订完酒店和机票后自己填进去，酒店是你自己在携程挑的，我填不了。
+向用户说明（须含全部要点）：
+- 机票去 trip.com（携程海外版），不用付款，走到支付页面停，截图或下载确认单。
+- 出入境城市呼应行程单。
+- ⚠️ 德国等部分领区有时要求已付款机票，递签前以该领区官网要求为准。
 
-2. 你一定要仔细看一遍这个行程单，记住每天去哪。电调会随机问，答不上来就麻烦了。所以还是推荐用「行程助手」app 自己动手做一遍加深印象。
+完成后用户确认 → 勾掉 → 进 5c。
 
-3. 景点开放时间我标注了，但建议出发前再去官网确认一次防止临时变动。
-```
+**5c: 酒店预订单**
 
-After user confirms done → check off item → move to 5b.
+向用户说明（须含全部要点）：
+- 酒店去携程 / Agoda / Booking 等任意平台都行，筛选"免费取消"或"先用后付"，下单后下载确认单。
+- 酒店城市和日期必须跟行程单一模一样。
+- 可问用户：要列出每个城市需要什么日期的酒店吗？
 
-**5b: 机票预订单 (COPY EXACTLY):**
-```
-机票去 trip.com（携程海外版）。
-
-不用付款！走到支付页面就停，截图或下载预订确认单。
-出入境城市呼应行程单 — 申哪个国家最好从那个国家出入境。
-```
-
-After user confirms done → check off item → move to 5c.
-
-**5c: 酒店预订单 (COPY EXACTLY):**
-```
-酒店去携程。
-
-筛选"免费取消"或"先用后付"，下单后下载确认单。
-酒店城市和日期必须跟行程单一模一样。
-
-要列出每个城市需要什么日期的酒店吗？
-```
-
-After user confirms done → check off item → move to Category 6.
+完成后用户确认 → 勾掉 → 进 Category 6。
 
 ---
 
 ### Category 6: 解释信 + 已婚附加 + 预约凭证
 
-**6a: 解释信 (COPY EXACTLY):**
-```
-最后是解释信。我可以帮你写，会直接显示在聊天里，再给你一份 Word 可编辑版本。
+**6a: 解释信**
 
-但写之前先说清楚：解释信最重要的是真实，模板只是骨架。建议你先告诉我：
+参考 `references/cover-letter.md`。向用户说明（须含全部要点）：
+- 可以帮你写，直接显示在聊天里，再给一份 Word 可编辑版本（无 Word 库则退化为 .txt/.md）。
+- 解释信最重要的是真实，模板只是骨架。建议先告诉三件事：钱的真实来源（含大额转账真实原因）、国内拴着你的东西、去欧洲的真实目的。
+- 这些写清楚再润色成英文。
 
-1. 钱的真实来源——工资？积蓄？家人给的？如果有大额转账，真实原因是什么（比如平时钱放支付宝、理财赎回、家人临时转的），照实说，签证官见得多了，撒谎一眼看穿。
-
-2. 国内有什么拴着你——什么公司什么职位干了多久？有没有房子在哪？家人在干嘛？
-
-3. 去欧洲的真实目的——纯旅游？看朋友？度蜜月？
-
-这些写清楚了我再帮你润色成英文，不然套模板一眼假反而坏事。
-
-准备好了就说，我来写。
-```
-
-**After user provides info and confirms:** Generate cover letter in chat + provide Word download. Check off item → move to 6b.
+用户提供信息并确认后 → 生成解释信 + Word 文件 → 勾掉 → 进 6b。
 
 **6b: 已婚附加**
 
-Only if the checklist has this item. If user is unmarried and the item is marked "未婚跳过", skip this.
+仅当清单含此项。向用户说明：已婚的话准备结婚证复印件 + 英文翻译件（网上有模板）；未婚说"跳过"。
 
-**SAY (COPY EXACTLY):**
-```
-清单上有结婚证这一项。已婚的话：结婚证复印件 + 英文翻译件，网上有模板。未婚的话说"跳过"。
-```
+用户确认 → 勾掉或跳过 → 进 6c。
 
-After user confirms → check off or skip → move to 6c.
+**6c: 预约凭证**
 
-**6c: 预约凭证 (COPY EXACTLY):**
-```
-最后两项：
+向用户说明：
+- 签证申请表：签证中心网站填完表生成的 PDF，打印。
+- 签证中心预约单：预约成功后的确认单，打印。
 
-17. 签证申请表 — 签证中心网站填完表生成的 PDF，打印。
-18. 签证中心预约单 — 预约成功后的确认单，打印。
-
-都打印好了就说"预约凭证好了"。
-```
-
-After user confirms → check off items → set current_step = review → go to Step 6.
+用户确认 → 勾掉 → Set current_step = review → 进 Step 6。
 
 ---
 
@@ -631,28 +243,22 @@ After user confirms → check off items → set current_step = review → go to 
 
 **current_step = review**
 
-**SAY (COPY EXACTLY):**
-```
-最后逐项核对：
-
-1. 护照有效期超过离开申根区后 3 个月？≥2 空白页？
+向用户逐项核对（须含全部要点）：
+1. 护照有效期超过离开申根区后 3 个月？≥2 空白页？**签发不超过 10 年？**
 2. 旧护照复印了？（没有跳过）
 3. 身份证、户口本（整本封面到最后一页）都复印好了？
-4. 身份证明材料准备齐了？签字+公章都有？
+4. 身份证明材料准备齐了？签字+公章都有？（未成年人：出生证明/父母同意书公证+海牙认证都办了？）
 5. 保险日期覆盖全程？保额≥3 万欧元？彩打前两页？
-6. 银行流水最近 3-6 个月的？余额够？没有临时大额转账？
+6. 银行流水最近 3-6 个月？余额按预算公式够？**没有临时大额转账**？
 7. 行程单里申请国天数最长？
-8. 机票预订单出入境城市呼应行程单？姓名跟护照一致？
+8. 机票预订单出入境城市呼应行程单？姓名跟护照一致？（德国注意是否要求付款）
 9. 酒店预订单日期城市跟行程单一致？姓名跟护照一致？
 10. 解释信讲清楚了资金来源+回国约束力+旅行目的？
 11. 已婚的话：结婚证+英文翻译件准备好了？
 12. 签证申请表和预约单都打印了？
 13. 所有文件没有订书钉或回形针？按顺序叠好了？
 
-全部确认好了就说"全部好了"。
-```
-
-**After user confirms all:** Set current_step = done. Go to done.
+全部确认 → 用户说"全部好了" → Set current_step = done → 进 Done。
 
 ---
 
@@ -660,29 +266,31 @@ After user confirms → check off items → set current_step = review → go to 
 
 **current_step = done**
 
-**SAY (COPY EXACTLY):**
-```
-全部就绪，可以去递签了。
-
-当天提醒：
-- 准时到签证中心
-- 文件不要用订书钉或回形针，按顺序叠好
-- 可能会电话核实，照实回答
-
-出签后旅行保险可以退掉。
-
-祝顺利出签！
-```
+向用户说明（须含全部要点）：
+- 全部就绪，可以去递签了。
+- 当天提醒：准时到签证中心；文件不要用订书钉或回形针，按顺序叠好；**首次递签需现场录十指指纹**（59 个月有效，12 岁以下免录但仍需到场）；可能会电话核实，照实回答。
+- 出签后旅行保险可以退掉。
+- 祝顺利出签。
 
 ---
 
 ## PROGRESS FILE
 
+### 路径
+
+progress.md 写到该 Agent 的用户数据目录下 `schengen-visa-guide/` 子目录，按平台自适应定位（优先读已存在的）：
+
+1. 优先 `~/.claude/skills-data/schengen-visa-guide/progress.md`（Claude Code）；
+2. 若 `~/.claude` 不存在，用 `~/.codex/skills-data/schengen-visa-guide/progress.md`（Codex）；
+3. 两者都不存在（其他 Agent），退化为 skill 安装目录下 `.data/progress.md`。
+
+目录不存在则创建。**不要写到当前工作目录**，避免跨会话找不到。
+
 ### Rules
 
-1. Edit progress.md BEFORE replying to user.
-2. Update current_step on every step transition.
-3. Check off items immediately when user confirms.
+1. 回复用户**之前**先更新 progress.md。
+2. 每次步骤切换都更新 current_step。
+3. 用户确认一项立即勾掉。
 
 ### New User Template
 
@@ -694,7 +302,7 @@ current_step: identity
 目标国家：待确认
 ```
 
-After Step 2, insert the full checklist matching the user's identity.
+Step 2 后插入与身份匹配的完整 checklist（从 references/checklist.md 摘取）。
 
 ---
 
@@ -702,24 +310,25 @@ After Step 2, insert the full checklist matching the user's identity.
 
 | Need | Read |
 |---|---|
-| Country links and details | `references/country-notes.md` |
-| Detailed item instructions | `references/checklist.md` |
-| Cover letter template | `references/cover-letter.md` |
-| Itinerary guide | `references/itinerary.md` |
+| 完整材料清单 + 预算公式 + 时间费用 + 未成年人 | `references/checklist.md` |
+| 各国网址 + 领区判定 + 录指纹 + 90/180 | `references/country-notes.md` |
+| 解释信模板 | `references/cover-letter.md` |
+| 行程单生成规则 | `references/itinerary.md` |
 
 ---
 
 ## HARD CONSTRAINTS
 
-1. Chinese only for all user-facing output.
-2. One step/category at a time. Never dump multiple.
-3. Edit progress.md BEFORE replying.
-4. Always read progress.md at session start.
-5. Sensitive materials = remind only. Never generate or ask to see.
-6. Non-sensitive (itinerary, cover letter) = can generate.
-7. Non-Schengen country = say "这不是申根国家，这个 skill 覆盖不了。"
-8. No staples or clips on documents.
-9. Application country must have most days in itinerary.
-10. Use SAY templates exactly. Do not paraphrase.
-11. The flow is fixed: Step 1 → Step 2 → Step 3 → Step 4 → Step 5 → Step 6. Never branch off unless user explicitly asks.
-12. Never ask about marriage, age, income, or other personal details. The checklist already covers conditional items with "如有/已婚者准备，XX跳过".
+1. 中文输出（面向用户）。
+2. 一次一类，不要一次性甩出多类。
+3. 回复前先更新 progress.md。
+4. 会话开始先读 progress.md。
+5. 敏感材料 = 只提醒，绝不生成或索要。
+6. 非敏感材料（行程单、解释信）= 可生成。
+7. 非申根国 = 说"这不是申根国家，这个 skill 覆盖不了。"
+8. 文件不要订书钉或回形针。
+9. 申请国天数必须在行程单里最长。
+10. 话术用自然语气表达，**须包含各步列出的全部要点**，但不必逐字照抄模板。
+11. 流程固定：Step 1 → 2 → 3 → 4 → 5 → 6，除非用户明确要求偏离。
+12. 不追问婚姻、年龄、收入等个人隐私。条件性材料已在清单里用"如有/已婚者准备，XX 跳过"标注。天数是为算预算而问，不属隐私。
+13. 涉及具体数字（费率、每日参考金额等）时，附"以官网为准"。
