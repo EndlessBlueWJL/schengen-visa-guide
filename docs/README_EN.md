@@ -1,6 +1,16 @@
-<h1 align="center">Schengen Visa Guide</h1>
+<p align="center">
+  <img src="../docs/banner.svg" alt="Schengen Visa Guide" width="720">
+</p>
 
-<p align="center"><em>A guide is a noun. This is a verb.</em></p>
+<p align="center">
+  <a href="https://github.com/EndlessBlueWJL/schengen-visa-guide/stargazers"><img src="https://img.shields.io/github/stars/EndlessBlueWJL/schengen-visa-guide?style=flat-square&color=FFD700" alt="Stars"></a>
+  &nbsp;
+  <a href="https://github.com/EndlessBlueWJL/schengen-visa-guide"><img src="https://img.shields.io/github/last-commit/EndlessBlueWJL/schengen-visa-guide?style=flat-square" alt="Last Commit"></a>
+  &nbsp;
+  <a href="../CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.1.0-003399?style=flat-square" alt="v1.1.0"></a>
+  &nbsp;
+  <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
+</p>
 
 <p align="center">
   <strong>English</strong>
@@ -9,15 +19,10 @@
 </p>
 
 <p align="center">
-  <a href="../CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.1.0-orange" alt="Version"></a>
-  &nbsp;
-  <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-</p>
-
-<p align="center">
 An AI agent skill for Chinese passport holders — platform-agnostic.<br>
 Turns a dead guide into a session-persistent, step-by-step interactive wizard.<br>
-Close the window, open it tomorrow — it remembers where you left off.
+Close the window, open it tomorrow — it remembers where you left off.<br>
+<em>A guide is a noun. This is a verb.</em>
 </p>
 
 ---

@@ -1,6 +1,16 @@
-<h1 align="center">Schengen Visa Guide</h1>
+<p align="center">
+  <img src="docs/banner.svg" alt="Schengen Visa Guide" width="720">
+</p>
 
-<p align="center"><em>攻略是名词。这个——是动词。</em></p>
+<p align="center">
+  <a href="https://github.com/EndlessBlueWJL/schengen-visa-guide/stargazers"><img src="https://img.shields.io/github/stars/EndlessBlueWJL/schengen-visa-guide?style=flat-square&color=FFD700" alt="Stars"></a>
+  &nbsp;
+  <a href="https://github.com/EndlessBlueWJL/schengen-visa-guide"><img src="https://img.shields.io/github/last-commit/EndlessBlueWJL/schengen-visa-guide?style=flat-square" alt="Last Commit"></a>
+  &nbsp;
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.1.0-003399?style=flat-square" alt="v1.1.0"></a>
+  &nbsp;
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
+</p>
 
 <p align="center">
   <a href="docs/README_EN.md"><strong>English</strong></a>
@@ -9,15 +19,10 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.1.0-orange" alt="Version"></a>
-  &nbsp;
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-</p>
-
-<p align="center">
 面向中国护照持有者的 AI Agent 技能——不挑平台。<br>
 把一条死攻略变成一个能跨会话连续工作的交互式签证向导。<br>
-关了窗口、明天再打开——它记得你办到哪了。
+关了窗口、明天再打开——它记得你办到哪了。<br>
+<em>攻略是名词。这个——是动词。</em>
 </p>
 
 ---
