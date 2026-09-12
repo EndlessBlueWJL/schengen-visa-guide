@@ -6,6 +6,8 @@
   <a href="../CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.1.0-003399?style=flat-square" alt="v1.1.0"></a>
   &nbsp;
   <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
+  &nbsp;
+  <a href="https://gitee.com/jinglong-wang/schengen-visa-guide"><img src="https://img.shields.io/badge/Gitee-Mirror-C71D23?style=flat-square&amp;logo=gitee&amp;logoColor=white" alt="Gitee Mirror"></a>
 </p>
 
 <p align="center">
@@ -92,6 +94,8 @@ git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-vis
 # Drop it into whichever directory your agent reads skills from
 git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
+
+> 🇨🇳 **Mirror in mainland China**: this repo is synced to Gitee — [gitee.com/jinglong-wang/schengen-visa-guide](https://gitee.com/jinglong-wang/schengen-visa-guide). Cloning from Gitee is much faster there; just swap the GitHub URL above for `https://gitee.com/jinglong-wang/schengen-visa-guide.git`.
 
 > 💡 **Updating?** `git pull` inside the skill directory. This project is under active development — more country appointment flows are being added.
 

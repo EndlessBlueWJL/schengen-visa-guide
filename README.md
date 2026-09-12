@@ -6,6 +6,8 @@
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-v1.1.0-003399?style=flat-square" alt="v1.1.0"></a>
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
+  &nbsp;
+  <a href="https://gitee.com/jinglong-wang/schengen-visa-guide"><img src="https://img.shields.io/badge/Gitee-%E9%95%9C%E5%83%8F-C71D23?style=flat-square&amp;logo=gitee&amp;logoColor=white" alt="Gitee 镜像"></a>
 </p>
 
 <p align="center">
@@ -92,6 +94,8 @@ git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-vis
 # 放到对应 Agent 读取 skills 的目录即可
 git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
+
+> 🇨🇳 **国内镜像**：本仓库同步在 Gitee —— [gitee.com/jinglong-wang/schengen-visa-guide](https://gitee.com/jinglong-wang/schengen-visa-guide)。国内克隆更快，把上面命令里的 GitHub 地址换成 `https://gitee.com/jinglong-wang/schengen-visa-guide.git` 即可。
 
 > 💡 **更新？** 在 skill 目录里 `git pull` 即可。项目持续迭代中，更多国家预约流程持续补充。
 
