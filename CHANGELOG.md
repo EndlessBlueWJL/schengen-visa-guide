@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Link directly to the official Chinese CHSI report application entry in the checklist and preparation guidance.
+- Align Chinese/English documentation with the bundled translator and mark first-version design documents as historical.
+- Defer CHSI translation options and example images until document preparation; use plain-text options 1/2 without popup tools.
+
+- Offer Chinese CHSI student-record upload/translation and the official English-report option (currently RMB 30, subject to the official site).
+- Include the two approved fictional report examples and bundle the reviewed translation engine with its original license.
+- Add local PDF extraction, private English-field preparation, PDF/PNG output and source/image integrity checks; preserve original source reports and template.
+- Keep runtime data outside repositories; add staged-file/history privacy checks and synthetic integration tests.
+
+
 ## v1.1.0 (2026-07-18)
 
 A major content + structure overhaul. The flow is more accurate, more complete, and easier to maintain.

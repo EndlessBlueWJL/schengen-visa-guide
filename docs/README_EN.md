@@ -53,11 +53,34 @@ This skill turns your AI agent into a personal visa handler:
 💰 **Budget estimate** → computes how much proof of funds to show, by days (fitted to real practice: ¥2,000/day ≤15d, scaling up beyond) — no more folklore about a flat "¥30k balance"
 
 🛡️ **Sensitive boundary baked in** → passport scans, bank statements, ID photos — reminded, never touched.
-                                        Itineraries and cover letters — generated, never faked
+                                        Itineraries and cover letters can be generated. A voluntarily uploaded Chinese CHSI student record can be translated locally.
 
 🌍 **29 countries, one lookup table** → official visa center URLs for every Schengen state. France/Italy/Spain have full appointment walkthroughs, plus consular-district rules and fingerprint reminders
 
 📞 **Prepped for the phone call** → itinerary logic catches Monday-closed museums, impossible same-day city hops, and country-day mismatches — so the visa officer's random question doesn't trip you
+
+---
+
+## CHSI student records
+
+The opening checklist includes the student-record requirement and the
+[official application entry](https://my.chsi.com.cn/). Log in, open the online
+verification report section, and apply for the Chinese student-record PDF. When the
+workflow reaches preparing that document, the skill shows plain-text options
+1 and 2 in chat, followed by the fictional example images; no popup or
+multiple-choice tool is used. Users may reply with a number or state their
+choice. An explicit upload-and-translate request proceeds without asking again.
+The two options are: upload a
+supported Chinese PDF to generate a tool translation with a preview, or apply
+for the official English report through CHSI (currently RMB 30; the official
+payment page controls). The tool translation is not an official English report.
+
+The two packaged [fictional examples](../references/chsi-translation.md) contain
+no applicant identity, real portrait or usable verification code/QR. Runtime
+documents, extracted fields and generated outputs stay outside Git repositories.
+Install `requirements-chsi.txt` to use the bundled Python entry point. Supported
+input is a single-page text-based student-record report matching the verified
+layout; qualification/degree reports and scans are not silently substituted.
 
 ---
 
@@ -122,10 +145,15 @@ schengen-visa-guide/
 │   ├── checklist.md              # Detailed per-document instructions by identity + budget + fees
 │   ├── country-notes.md          # All 29 Schengen state URLs + walkthroughs + districts + fingerprints
 │   ├── cover-letter.md           # Cover letter template + common doubt counter-strategies
-│   └── itinerary.md              # Itinerary generation rules + opening-hours verification
+│   ├── itinerary.md              # Itinerary generation rules + opening-hours verification
+│   └── chsi-translation.md        # Official CHSI links, choices and local translation
+├── scripts/translate_chsi.py      # Extract a Chinese record and generate PDF/PNG output
+├── assets/chsi/                  # Two fictional examples only
+├── vendor/chsi-translator/       # Reviewed engine, fonts, template and Apache-2.0 license
+├── requirements-chsi.txt         # Optional translation dependencies
 ├── docs/
-│   ├── design.md                 # Architecture & design rationale
-│   ├── plan.md                   # Implementation plan
+│   ├── design.md                 # Historical first-version design; see SKILL.md for current flow
+│   ├── plan.md                   # Historical first-version implementation plan
 │   ├── project-description.md    # Design philosophy
 │   └── README_EN.md              # English README
 ├── CHANGELOG.md                  # Version history
@@ -139,7 +167,7 @@ schengen-visa-guide/
 1. **Session gate** — every new session, the visa flow must read `progress.md` before responding (single-question asks excepted). Dead instruction.
 2. **Push-then-save** — user confirms item → write to `progress.md` → then reply. Save first, talk second.
 3. **Country router** — user picks a country → look up official URL from `country-notes.md`. Table lookup, not LLM guesswork.
-4. **Sensitive/non-sensitive split** — ID docs, academic records, financials = remind only. Itinerary, cover letter = can generate.
+4. **Document handling** — ID and financial documents are reminders only. Itineraries and cover letters can be generated. A Chinese student-record report may be translated after the user chooses to upload it; private inputs and outputs stay outside repositories.
 5. **Final reconciliation** — re-check every item, including ticked ones, because a tick and a document-in-hand are two different things.
 
 ---
@@ -163,3 +191,5 @@ schengen-visa-guide/
 ## License
 
 MIT — commercial use, modification, closed-source integration all fine.
+
+The main guide remains MIT; vendored translation code and runtime dependencies retain their own licenses. See [third-party notices](../THIRD_PARTY_NOTICES.md).

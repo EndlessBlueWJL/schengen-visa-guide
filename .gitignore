@@ -10,3 +10,28 @@ desktop.ini
 # IDE
 .vscode/
 .idea/
+
+# CHSI translation runtime files
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.data/
+private/
+personal/
+runtime/
+inputs/
+outputs/
+reports/
+progress.md
+extracted.json
+translation.json
+render-configuration.yaml
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.zip
+!assets/chsi/chsi-student-record-zh.png
+!assets/chsi/chsi-student-record-en.png
+!vendor/chsi-translator/data/online_verification_report_template20260809.pdf

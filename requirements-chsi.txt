@@ -1,0 +1,4 @@
+PyPDF2==3.0.1
+reportlab==4.0.7
+PyYAML~=6.0.1
+PyMuPDF==1.27.2.3

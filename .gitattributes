@@ -1,0 +1,6 @@
+.githooks/* text eol=lf
+*.py text eol=lf
+vendor/chsi-translator/configuration.example.yaml text eol=lf
+assets/chsi/*.png binary
+vendor/chsi-translator/data/*.pdf binary
+vendor/chsi-translator/font/*.ttf binary

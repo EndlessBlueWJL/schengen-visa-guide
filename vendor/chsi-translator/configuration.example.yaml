@@ -1,0 +1,23 @@
+# 空白结构示例。请使用 --init-config 在代码仓库外创建个人配置。
+# 所有个人字段保持空白；日期填写 YYYY/MM/DD，且必须与原件一致。
+# 顶部失效日期按更新日期的下一年同月同日自动计算；2 月 29 日取次年 2 月 28 日。
+# 图片和输出路径相对于个人配置目录解析，也可使用绝对路径。
+# 英文信息须自行确认；程序不会将中文字段发送给在线翻译服务。
+output_file_path: ""
+qr_code: ""
+certificate_photo: ""
+date_of_renewal: ""
+name: ""
+sex: ""
+date_of_birth: ""
+ethnic_background: ""
+higher_education_institution: ""
+education_level: ""
+major: ""
+length_of_program: ""
+type_of_education: ""
+form_of_learning: ""
+start_date: ""
+status_of_student_record: ""
+anticipated_graduation_date: ""
+verification_code: ""

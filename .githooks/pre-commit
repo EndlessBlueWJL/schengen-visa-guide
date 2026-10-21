@@ -1,0 +1,2 @@
+#!/bin/sh
+python scripts/check_public_files.py --staged

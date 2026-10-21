@@ -1,5 +1,7 @@
 # Schengen Visa Skill — Implementation Plan
 
+> Historical first-version plan, retained as background rather than current execution instructions. For the current workflow and external private-data paths, see [SKILL.md](../SKILL.md); for the optional bundled Python translator, see [CHSI guidance](../references/chsi-translation.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build an interactive Schengen visa wizard skill for Chinese-passport university students, covering 5-step process from country selection to visa collection.

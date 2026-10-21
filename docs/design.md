@@ -1,5 +1,7 @@
 # Schengen Visa Skill — 设计文档
 
+> 首版历史设计，保留作开发背景；其中材料数量、功能范围和进度路径不代表当前实现。当前流程见 [SKILL.md](../SKILL.md)，学信网翻译与隐私边界见[办理说明](../references/chsi-translation.md)。
+
 Version: v1 | Date: 2026-05-19 | Target: 在校学生（中国护照）
 
 ## 概述
