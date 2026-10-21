@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Move the README translation summary after the main content, remove the two-option walkthrough there, and use compact clickable example thumbnails.
+
 - Link directly to the official Chinese CHSI report application entry in the checklist and preparation guidance.
 - Align Chinese/English documentation with the bundled translator and mark first-version design documents as historical.
 - Defer CHSI translation options and example images until document preparation; use plain-text options 1/2 without popup tools.

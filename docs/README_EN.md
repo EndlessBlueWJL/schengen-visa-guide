@@ -53,34 +53,11 @@ This skill turns your AI agent into a personal visa handler:
 💰 **Budget estimate** → computes how much proof of funds to show, by days (fitted to real practice: ¥2,000/day ≤15d, scaling up beyond) — no more folklore about a flat "¥30k balance"
 
 🛡️ **Sensitive boundary baked in** → passport scans, bank statements, ID photos — reminded, never touched.
-                                        Itineraries and cover letters can be generated. A voluntarily uploaded Chinese CHSI student record can be translated locally.
+                                        Itineraries and cover letters can be generated.
 
 🌍 **29 countries, one lookup table** → official visa center URLs for every Schengen state. France/Italy/Spain have full appointment walkthroughs, plus consular-district rules and fingerprint reminders
 
 📞 **Prepped for the phone call** → itinerary logic catches Monday-closed museums, impossible same-day city hops, and country-day mismatches — so the visa officer's random question doesn't trip you
-
----
-
-## CHSI student records
-
-The opening checklist includes the student-record requirement and the
-[official application entry](https://my.chsi.com.cn/). Log in, open the online
-verification report section, and apply for the Chinese student-record PDF. When the
-workflow reaches preparing that document, the skill shows plain-text options
-1 and 2 in chat, followed by the fictional example images; no popup or
-multiple-choice tool is used. Users may reply with a number or state their
-choice. An explicit upload-and-translate request proceeds without asking again.
-The two options are: upload a
-supported Chinese PDF to generate a tool translation with a preview, or apply
-for the official English report through CHSI (currently RMB 30; the official
-payment page controls). The tool translation is not an official English report.
-
-The two packaged [fictional examples](../references/chsi-translation.md) contain
-no applicant identity, real portrait or usable verification code/QR. Runtime
-documents, extracted fields and generated outputs stay outside Git repositories.
-Install `requirements-chsi.txt` to use the bundled Python entry point. Supported
-input is a single-page text-based student-record report matching the verified
-layout; qualification/degree reports and scans are not silently substituted.
 
 ---
 
@@ -167,7 +144,7 @@ schengen-visa-guide/
 1. **Session gate** — every new session, the visa flow must read `progress.md` before responding (single-question asks excepted). Dead instruction.
 2. **Push-then-save** — user confirms item → write to `progress.md` → then reply. Save first, talk second.
 3. **Country router** — user picks a country → look up official URL from `country-notes.md`. Table lookup, not LLM guesswork.
-4. **Document handling** — ID and financial documents are reminders only. Itineraries and cover letters can be generated. A Chinese student-record report may be translated after the user chooses to upload it; private inputs and outputs stay outside repositories.
+4. **Document handling** — ID and financial documents are reminders only. Itineraries and cover letters can be generated.
 5. **Final reconciliation** — re-check every item, including ticked ones, because a tick and a document-in-hand are two different things.
 
 ---
@@ -185,6 +162,18 @@ schengen-visa-guide/
 - Chinese passport only (for now)
 - Schengen short-stay tourist visa (Type C) only
 - Non-Schengen countries are explicitly rejected
+
+---
+
+## CHSI report translation
+
+This skill integrates the [student-record translation project](https://github.com/muxiymmm/Online-Verification-Report-Translator20260714) to turn a Chinese CHSI student-record report into an English PDF. The main translated fields and overall layout closely match CHSI's official English report. This is a tool-generated translation; acceptance remains subject to the relevant consulate or visa center. [Usage guide](../references/chsi-translation.md)
+
+Fictional examples; click a thumbnail to view the full image.
+
+| Chinese report | English translation from this tool |
+|---|---|
+| <a href="../assets/chsi/chsi-student-record-zh.png"><img src="../assets/chsi/chsi-student-record-zh.png" alt="Fictional Chinese student-record example" width="180"></a> | <a href="../assets/chsi/chsi-student-record-en.png"><img src="../assets/chsi/chsi-student-record-en.png" alt="Fictional English tool-translation example" width="180"></a> |
 
 ---
 
