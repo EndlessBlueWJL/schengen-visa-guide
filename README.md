@@ -95,6 +95,8 @@ git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-vis
 git clone https://github.com/EndlessBlueWJL/schengen-visa-guide.git schengen-visa-guide
 ```
 
+[![Try 申根签证材料向导 on Socialistic](https://socialistic.ai/api/embed/schengen-visa-guide-044bf6?lang=zh)](https://socialistic.ai/zh/skill/schengen-visa-guide-044bf6?utm_source=github&utm_medium=pr&utm_campaign=d3874e35&utm_content=badge)
+
 > 🇨🇳 **国内镜像**：本仓库同步在 Gitee —— [gitee.com/jinglong-wang/schengen-visa-guide](https://gitee.com/jinglong-wang/schengen-visa-guide)。国内克隆更快，把上面命令里的 GitHub 地址换成 `https://gitee.com/jinglong-wang/schengen-visa-guide.git` 即可。
 
 > 💡 **更新？** 在 skill 目录里 `git pull` 即可。项目持续迭代中，更多国家预约流程持续补充。
